@@ -10,7 +10,7 @@ a valid host. There is a script that will generate recommended ssh configuration
 bash hosts/sherlock_ssh.sh
 ```
 ```
-Host sherlock
+Host sherlock 
     User put_your_username_here
     Hostname sh-ln01.stanford.edu
     GSSAPIDelegateCredentials yes
@@ -27,11 +27,11 @@ bash hosts/sherlock_ssh.sh >> ~/.ssh/config
 ``` 
 5. Login to your sherlock account. Load python3.6 by running the command `ml python/3.6.1`. Pip install deepcell by running `pip install --user deepcell`.
 6. If you have not set up notebook authentification before, you will need to set a password via `jupyter notebook password` on your sherlock account. Make sure to pick a secure password! If you run into an error of invalid password, navigate to `~/.jupyter` on your sherlock account and look at the `jupyter_notebook_config.json` file. If your hashed password starts with `argon2`, you will need to rehash this password yourself by opening an ipython session in Sherlock by with `ipython` and then using the following commands:
-`
+```
 from notebook.auth import passwd
 password=‘your_password’
 passwd(password, ‘sha1’)
-`
+```
 Copy the output of this last command (e.g. `sha1:eb13d589486a:b852385152418fc49e9f2089262d402ce02d1bfe`). Open `jupyter_notebook_config.json`, delete only what is in the double parentheses to look like this `"password": ""` and then paste your output so it looks like this `"password": "sha1:eb13d589486a:b852385152418fc49e9f2089262d402ce02d1bfe"`. Be sure not to edit anything outside of the double parentheses or add any spaces.
 
 ## Running a job to access deepcell notebook
