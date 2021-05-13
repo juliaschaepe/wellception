@@ -1,4 +1,4 @@
-# Access sherlock GPU-enabled notebooks locally
+# Access sherlock GPU-enabled notebooks locally and run deepcell
 ## Setup
 1. Clone this repository locally. Navigate to a location on your local machine where you want to clone the repository. Use the command `git clone https://github.com/juliaschaepe/wellception.git`.
 2. Navigate to the `params_deepcell.sh` file in the forward folder. Edit the first line of the file to include your suid `FORWARD_USERNAME="jschaepe"`. Next, pick a port to use.  If someone else is port forwarding using that port already, this script will not work. If you pick a random number in the range 49152-65335, you should be good. Edit `params_deepcell.sh` to include your chosen port `PORT="59339"`.
