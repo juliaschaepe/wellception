@@ -1,10 +1,9 @@
 # Access sherlock GPU-enabled notebooks locally
 ## Setup
 1. Clone this repository locally. Navigate to a location on your local machine where you want to clone the repository. Use the command `git clone https://github.com/juliaschaepe/wellception.git`.
-2. Navigate to the `params_deepcell.sh` file in the forward folder. Edit the first line of the file to include your suid `FORWARD_USERNAME="jschaepe"`.
-3. Copy the `organoid_processor.ipynb` to your sherlock account with scp using the following command `scp organoid_processor.ipynb jschaepe@login.sherlock.stanford.edu:~/<location_for_file>`, replacing jschaepe with your suid.
-4. You will also need to at the minimum configure your ssh to recognize sherlock as
-a valid host. There is a script that will generate recommended ssh configuration snippets to put in your `~/.ssh/config` file. Here is how you can generate this configuration for Sherlock:
+2. Navigate to the `params_deepcell.sh` file in the forward folder. Edit the first line of the file to include your suid `FORWARD_USERNAME="jschaepe"`. Next, pick a port to use.  If someone else is port forwarding using that port already, this script will not work. If you pick a random number in the range 49152-65335, you should be good. Edit `params_deepcell.sh` to include your chosen port `PORT="59339"`.
+3. Copy the `organoid_processor.ipynb` to your sherlock account with scp using the following command `scp organoid_processor.ipynb jschaepe@login.sherlock.stanford.edu:~/<location_for_file>`, replacing jschaepe with your suid. You will also need a file `organoid_resnet50.h5` in order to run the organoid-trained deepcell model. Contact me to have it sent since it is a large file (303.2 MB). Be sure that it is fully downloaded by checking the file size before using scp to copy it up to Sherlock.
+4. You will also need to at the minimum configure your ssh to recognize sherlock as a valid host. There is a script that will generate recommended ssh configuration snippets to put in your `~/.ssh/config` file. Here is how you can generate this configuration for Sherlock:
 
 ```bash
 bash hosts/sherlock_ssh.sh
